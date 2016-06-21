@@ -22,16 +22,14 @@ class app extends Component {
     var movie = MOCKED_MOVIES_DATA[0];
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          {movie.title}
-        </Text>
-        <Text style={styles.instructions}>
-          {movie.year}
-        </Text>
         <Image
           source={{uri: movie.posters.thumbnail}}
           style={styles.thumbnail}
         />
+        <View style={styles.rightContainer}>
+          <Text style={styles.title}>{movie.title}</Text>
+          <Text style={styles.year}>{movie.year}</Text>
+        </View>
       </View>
     );
   }
@@ -40,23 +38,25 @@ class app extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
+  },
+  rightContainer: {
+    flex: 1,
   },
   thumbnail: {
     width: 53,
     height: 81,
   },
-  welcome: {
+  title: {
     fontSize: 20,
     textAlign: 'center',
-    margin: 10,
+    marginBottom: 8,
   },
-  instructions: {
+  year: {
     textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
   },
 });
 
